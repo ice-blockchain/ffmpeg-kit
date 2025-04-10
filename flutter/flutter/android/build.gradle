@@ -55,7 +55,7 @@ android {
 
 dependencies {
     implementation 'androidx.annotation:annotation:1.5.0'
-    implementation 'com.arthenica:ffmpeg-kit-full-gpl:6.0.2'
+    implementation 'com.arthenica:ffmpeg-kit:6.0.3'
     implementation "com.arthenica:smart-exception-java:0.2.1"
     implementation "com.arthenica:smart-exception-common:0.2.1"
 }
@@ -64,10 +64,10 @@ publishing {
     publications {
         ffmpegAar(MavenPublication) {
             groupId = "com.arthenica"
-            artifactId = "ffmpeg-kit-full-gpl"
-            version  = "6.0.2"
+            artifactId = "ffmpeg-kit"
+            version  = "6.0.3"
 
-            artifact(file("libs/ffmpeg-kit-full-gpl-6.0-2.aar")) {
+            artifact(file("libs/ffmpeg-kit.aar")) {
                 extension = "aar"
             }
         }
