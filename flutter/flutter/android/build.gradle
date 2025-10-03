@@ -2,7 +2,6 @@ buildscript {
     repositories {
         google()
         mavenCentral()
-        
     }
     dependencies {
         classpath 'com.android.tools.build:gradle:8.1.0'
@@ -55,7 +54,7 @@ android {
 
 dependencies {
     implementation 'androidx.annotation:annotation:1.5.0'
-    implementation 'com.arthenica:ffmpeg-kit-full-gpl:6.0.2'
+    implementation 'com.arthenica:ffmpeg-kit-x264-webp-opus-gpl:0.0.1'
     implementation "com.arthenica:smart-exception-java:0.2.1"
     implementation "com.arthenica:smart-exception-common:0.2.1"
 }
@@ -64,10 +63,10 @@ publishing {
     publications {
         ffmpegAar(MavenPublication) {
             groupId = "com.arthenica"
-            artifactId = "ffmpeg-kit-full-gpl"
-            version  = "6.0.2"
+            artifactId = "ffmpeg-kit-x264-webp-opus-gpl"
+            version  = "0.0.1"
 
-            artifact(file("libs/ffmpeg-kit-full-gpl-6.0-2.aar")) {
+            artifact(file("libs/ffmpeg-kit-x264-webp-opus-gpl-0.0.1.aar")) {
                 extension = "aar"
             }
         }
