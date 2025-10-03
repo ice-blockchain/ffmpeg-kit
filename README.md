@@ -1,3 +1,16 @@
+# 16KB Page Size Update
+This fork only aims to make ffmpeg-kit compatible with new android versions (API 35) which request all binaries to be rebuilt.
+Google request developers to build new with new r27 and r28 ndk but ffmpeg-kit has its own NDK compatibility table which supports only upto r25.</p>
+<i>Edit: As original devs said, master branch has been tested upto NDK r27.</i>
+
+</p>
+Lucky for us, there is a version of ndk r23 and r25 in CI which supports 16KB page sizes too.
+make sure to download this ndk version and compile ffmpeg-kit with this ndk only.<br/>
+NDK : <a href="https://ci.android.com/builds/branches/aosp-ndk-release-r23/grid">R23</a> <a href="https://ci.android.com/builds/branches/aosp-ndk-r25-release/grid">R25</a>
+</p>
+You can find all details related to this update here. https://developer.android.com/guide/practices/page-sizes
+</br>
+
 # FFmpegKit ![GitHub release](https://img.shields.io/badge/release-v6.0-blue.svg) ![Maven Central](https://img.shields.io/maven-central/v/com.arthenica/ffmpeg-kit-min) ![CocoaPods](https://img.shields.io/cocoapods/v/ffmpeg-kit-ios-min) ![pub](https://img.shields.io/pub/v/ffmpeg_kit_flutter.svg) ![npm](https://img.shields.io/npm/v/ffmpeg-kit-react-native.svg)
 
 ## Notice
@@ -13,6 +26,14 @@ All previously released `ffmpeg-kit` binaries will be removed according to the f
 |        6.0        |  April 1st, 2025   |
 
 Thank you for your support and interest in this project.
+
+If you're looking for a replacement, please check out the community-maintained forks available through the package managers below.
+
+|                          Platform                           |
+|:-------------------------------------------------------:|
+| [Android](https://central.sonatype.com/search?q=ffmpeg+kit) |
+| [Flutter](https://pub.dev/packages?q=ffmpeg+kit) |
+| [React Native](https://www.npmjs.com/search?q=ffmpeg%20kit) |
 
 <img src="https://github.com/arthenica/ffmpeg-kit/blob/main/docs/assets/ffmpeg-kit-icon-v9.png" width="240">
 
