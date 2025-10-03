@@ -2,21 +2,25 @@ buildscript {
     repositories {
         google()
         mavenCentral()
+        
     }
-
     dependencies {
         classpath 'com.android.tools.build:gradle:8.1.0'
     }
+}
+
+plugins {
+    id 'com.android.library'
+    id 'maven-publish'
 }
 
 rootProject.allprojects {
     repositories {
         google()
         mavenCentral()
+        mavenLocal()
     }
 }
-
-apply plugin: 'com.android.library'
 
 android {
     // Conditional for compatibility with AGP <4.2.
@@ -38,9 +42,11 @@ android {
             minifyEnabled false
         }
     }
+
     lintOptions {
         disable 'GradleCompatible'
     }
+
     compileOptions {
         sourceCompatibility JavaVersion.VERSION_1_8
         targetCompatibility JavaVersion.VERSION_1_8
@@ -49,5 +55,43 @@ android {
 
 dependencies {
     implementation 'androidx.annotation:annotation:1.5.0'
-    implementation 'com.arthenica:ffmpeg-kit-https:6.0-2'
+    implementation 'com.arthenica:ffmpeg-kit-full-gpl:6.0.2'
+    implementation "com.arthenica:smart-exception-java:0.2.1"
+    implementation "com.arthenica:smart-exception-common:0.2.1"
 }
+
+publishing {
+    publications {
+        ffmpegAar(MavenPublication) {
+            groupId = "com.arthenica"
+            artifactId = "ffmpeg-kit-full-gpl"
+            version  = "6.0.2"
+
+            artifact(file("libs/ffmpeg-kit-full-gpl-6.0-2.aar")) {
+                extension = "aar"
+            }
+        }
+
+        smartExceptionJava(MavenPublication) {
+            groupId = "com.arthenica"
+            artifactId = "smart-exception-java"
+            version  = "0.2.1"
+
+            artifact(file("libs/smart-exception-java-0.2.1.jar")) {
+                extension = "jar"
+            }
+        }
+
+        smartExceptionCommon(MavenPublication) {
+            groupId = "com.arthenica"
+            artifactId = "smart-exception-common"
+            version  = "0.2.1"
+
+            artifact(file("libs/smart-exception-common-0.2.1.jar")) {
+                extension = "jar"
+            }
+        }
+    }
+}
+
+preBuild.dependsOn(':ffmpeg_kit_flutter:publishToMavenLocal')
